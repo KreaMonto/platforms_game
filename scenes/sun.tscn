@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch53g22fw0gpy"]
+
+[ext_resource type="Texture2D" uid="uid://d1lpv502frkd2" path="res://assets/Deco/sun.png" id="1_d0l8y"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d0l8y")
+hframes = 6
+frame = 5

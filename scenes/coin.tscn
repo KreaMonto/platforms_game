@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy7pdqiovtq6g"]
+
+[ext_resource type="Texture2D" uid="uid://bhlpn3n7a63t5" path="res://assets/Objects/coin_gold.png" id="1_etsfu"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(36, 23)
+texture = ExtResource("1_etsfu")
+hframes = 8
