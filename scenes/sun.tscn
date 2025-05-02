@@ -1,10 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://ch53g22fw0gpy"]
+[gd_scene load_steps=6 format=3 uid="uid://ch53g22fw0gpy"]
 
+[ext_resource type="Script" path="res://scripts/sun.gd" id="1_7tqk0"]
 [ext_resource type="Texture2D" uid="uid://d1lpv502frkd2" path="res://assets/Deco/sun.png" id="1_d0l8y"]
 
+[sub_resource type="Animation" id="Animation_obwhl"]
+resource_name = "shine"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_qkkhg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yweda"]
+_data = {
+"RESET": SubResource("Animation_qkkhg"),
+"shine": SubResource("Animation_obwhl")
+}
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_7tqk0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_d0l8y")
 hframes = 6
-frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_yweda")
+}
