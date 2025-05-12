@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cilcq530d8f2y"]
+[gd_scene load_steps=15 format=3 uid="uid://cilcq530d8f2y"]
 
 [ext_resource type="Texture2D" uid="uid://c5r8wkmhhseg0" path="res://assets/Tilesets/tileset_forest.png" id="1_cww34"]
 [ext_resource type="Texture2D" uid="uid://34ayo7gylgkx" path="res://assets/Deco/water_a_8frames.png" id="1_na4ry"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://dcm0sgwdcm3lf" path="res://assets/Objects/sign.png" id="8_ppk1b"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="10_57p1e"]
 [ext_resource type="Texture2D" uid="uid://djxrf7t2qvpfo" path="res://assets/Objects/coin_small_gold.png" id="10_j8o7v"]
-[ext_resource type="Script" path="res://scripts/death_zone.gd" id="12_8gayv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wmjfv"]
 texture = ExtResource("1_cww34")
@@ -159,9 +158,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wmjfv")
 sources/2 = SubResource("TileSetAtlasSource_sfuhi")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v380y"]
-size = Vector2(873, 42)
-
 [node name="world" type="Node2D"]
 
 [node name="WaterA8Frames" type="Sprite2D" parent="."]
@@ -201,7 +197,7 @@ texture = ExtResource("8_ppk1b")
 position = Vector2(12, -9)
 zoom = Vector2(2, 2)
 
-[node name="Player" parent="." instance=ExtResource("2_o3wjl")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_o3wjl")]
 position = Vector2(12, -9)
 
 [node name="Node2D" parent="." instance=ExtResource("7_08m4e")]
@@ -241,12 +237,3 @@ offset_top = -172.0
 offset_right = -206.0
 offset_bottom = -146.0
 text = "0"
-
-[node name="death_zone" type="Area2D" parent="."]
-script = ExtResource("12_8gayv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="death_zone"]
-position = Vector2(10.5, 197)
-shape = SubResource("RectangleShape2D_v380y")
-
-[connection signal="body_entered" from="death_zone" to="death_zone" method="_on_body_entered"]

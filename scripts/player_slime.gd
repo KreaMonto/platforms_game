@@ -38,3 +38,7 @@ func _physics_process(delta):
 		friction = true
 
 	move_and_slide()
+
+func add_coin():
+	var layerNode = get_tree().current_scene.find_child("CanvasLayer", true, false)
+	layerNode.handleCoinCollected()

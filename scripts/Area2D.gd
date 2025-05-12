@@ -1,6 +1,9 @@
 extends Area2D
 
+signal coinCollected
 
-func _on_body_entered(_body):
-	queue_free()
-	pass # Replace with function body.
+func _on_body_entered(body):
+	if body.get_name() == "Player":
+		body.add_coin()
+		queue_free()
+		
